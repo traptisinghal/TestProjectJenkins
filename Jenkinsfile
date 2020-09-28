@@ -14,7 +14,7 @@ pipeline {
 		}
 		steps {
 		  echo 'Sonarqube..'
-		   withSonarQubeEnv('sonarqube') {
+		   withSonarQubeEnv('SonarQube') {
             bat "${scannerHome}/bin/sonar-runner.bat"
         } 
 		
