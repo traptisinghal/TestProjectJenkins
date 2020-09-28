@@ -7,11 +7,11 @@ pipeline {
                 echo 'Building..'
             }
         }
-		stage('Sonarqube') 
+		stage('SonarQube analysis') 
 		{
-    environment {
-        scannerHome = tool 'SonarQubeScanner'
-    }    steps {
+		 echo 'Sonarqube..'
+		 def scannerHome = tool 'SonarQubeScanner';
+      steps {
         withSonarQubeEnv('sonarqube') {
             bat "${scannerHome}/bin/sonar-runner.bat"
         }        timeout(time: 10, unit: 'MINUTES') {
