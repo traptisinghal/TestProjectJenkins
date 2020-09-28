@@ -9,9 +9,12 @@ pipeline {
         }
 		stage('SonarQube analysis') 
 		{
+		environment {
+        scannerHome = tool 'SonarQubeScanner'
+		}
 		steps {
-		 
-	  echo 'Sonarqube..'
+		  echo 'Sonarqube..'
+		
 		 
     }
 	}
