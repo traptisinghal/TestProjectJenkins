@@ -9,9 +9,11 @@ pipeline {
         }
 		stage('SonarQube analysis') 
 		{
-		 echo 'Sonarqube..'
+		steps {
 		 def scannerHome = tool 'SonarQubeScanner';
-      steps {
+      
+	  echo 'Sonarqube..'
+		 
         withSonarQubeEnv('sonarqube') {
             bat "${scannerHome}/bin/sonar-runner.bat"
         }        timeout(time: 10, unit: 'MINUTES') {
